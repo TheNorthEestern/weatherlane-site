@@ -1,17 +1,215 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import BentoCard from '../components/BentoCard.astro';
+import AppStoreButton from '../components/AppStoreButton.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <!-- Bento grid -->
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+      <!-- HERO: spans 2 cols on sm+, full width on mobile -->
+      <BentoCard
+        bg="bg-[#E0F2FE]"
+        className="sm:col-span-2 sm:row-span-2 flex flex-col justify-between min-h-[28rem]"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="/icon.png"
+            alt="Weatherlane app icon"
+            class="w-12 h-12 rounded-xl shadow-sm"
+            width="48"
+            height="48"
+          />
+          <span class="text-xl font-semibold tracking-tight">Weatherlane</span>
+        </div>
+
+        <div class="mt-8">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+            Your day,<br />on a single lane.
+          </h1>
+          <p class="mt-5 max-w-md text-base sm:text-lg text-slate-700">
+            An hourly forecast that reads like a timeline. Every hour from now until midnight stacks into one vertical lane, so you can see the shape of your day at a glance.
+          </p>
+          <div class="mt-8">
+            <AppStoreButton />
+          </div>
+        </div>
+
+        <!-- Floating phone screenshot -->
+        <img
+          src="/screenshots/today.png"
+          alt="Weatherlane showing Tokyo's hourly forecast"
+          class="hidden sm:block absolute right-4 -bottom-12 lg:-bottom-16 w-56 lg:w-72 drop-shadow-2xl"
+          width="1421"
+          height="2909"
+        />
+      </BentoCard>
+
+      <!-- HOUR BY HOUR -->
+      <BentoCard bg="bg-[#FEF9C3]" className="flex flex-col justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-amber-700">Hour by hour</p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight">
+            Temperature, condition, feel.
+          </h2>
+          <p class="mt-3 text-slate-700">
+            Each row pairs the hour with a glance-readable icon and the feels-like temp. The shape of the day reads itself.
+          </p>
+        </div>
+      </BentoCard>
+
+      <!-- TAP DETAIL -->
+      <BentoCard bg="bg-[#FED7AA]" className="flex flex-col justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-orange-700">Tap any hour</p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight">
+            For the full picture.
+          </h2>
+          <p class="mt-3 text-slate-700">
+            Feels-like, wind, humidity, UV, precipitation, sunrise and sunset. Eight tiles, one tap.
+          </p>
+        </div>
+        <img
+          src="/screenshots/detail.png"
+          alt="Detail panel showing weather metrics for Madrid"
+          class="mt-6 -mb-4 mx-auto w-36 drop-shadow-xl"
+          width="1421"
+          height="2909"
+        />
+      </BentoCard>
+
+      <!-- TOMORROW -->
+      <BentoCard bg="bg-[#EDE9FE]" className="flex flex-col justify-between overflow-hidden">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-indigo-700">Swipe up</p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight">
+            Tomorrow at a glance.
+          </h2>
+          <p class="mt-3 text-slate-700">
+            One gesture lifts you from now to tomorrow. Same lane, same scrub, twelve hours ahead.
+          </p>
+        </div>
+        <img
+          src="/screenshots/tomorrow.png"
+          alt="Tomorrow's forecast for Paris"
+          class="mt-6 -mb-12 mx-auto w-32 drop-shadow-xl"
+          width="1421"
+          height="2909"
+        />
+      </BentoCard>
+
+      <!-- WEEK -->
+      <BentoCard
+        bg="bg-[#FCE7F3]"
+        className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:gap-8"
+      >
+        <div class="flex-1">
+          <p class="text-sm font-semibold uppercase tracking-wide text-pink-700">7 days</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight">
+            See the week ahead.
+          </h2>
+          <p class="mt-3 text-slate-700">
+            One more swipe gets you a week of weather: daily highs, lows, and the visual rhythm of what's coming.
+          </p>
+        </div>
+        <img
+          src="/screenshots/week.png"
+          alt="7-day forecast view for Berlin"
+          class="mt-6 sm:mt-0 mx-auto sm:mx-0 w-44 sm:w-48 drop-shadow-xl"
+          width="1421"
+          height="2909"
+        />
+      </BentoCard>
+
+      <!-- PRO -->
+      <BentoCard
+        bg="bg-slate-900"
+        className="text-white flex flex-col justify-between min-h-[18rem]"
+      >
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-sky-300">
+            Weatherlane Pro
+          </p>
+          <h2 class="mt-2 text-2xl font-bold tracking-tight">
+            Unlimited cities. Live widget.
+          </h2>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>• Unlimited saved cities</li>
+            <li>• Self-refreshing home-screen widget</li>
+            <li>• On-device AI weather summaries</li>
+            <li>• 7-day free trial</li>
+          </ul>
+        </div>
+        <p class="mt-6 text-xs text-slate-400">
+          $1.99/month or $11.99/year. Cancel anytime in Settings.
+        </p>
+      </BentoCard>
+
+      <!-- LOCATIONS -->
+      <BentoCard
+        bg="bg-[#D1FAE5]"
+        className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:gap-8"
+      >
+        <div class="flex-1">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700">All your cities</p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight">
+            In one swipe.
+          </h2>
+          <p class="mt-3 text-slate-700">
+            Pin the places you check most: home, the commute, your parents, the trip you're planning. Side-by-side, one gesture between them.
+          </p>
+        </div>
+        <img
+          src="/screenshots/locations.png"
+          alt="Locations carousel showing Tokyo, Osaka, and Kyoto"
+          class="mt-6 sm:mt-0 mx-auto sm:mx-0 w-44 sm:w-48 drop-shadow-xl"
+          width="1421"
+          height="2909"
+        />
+      </BentoCard>
+
+      <!-- DATA SOURCE -->
+      <BentoCard bg="bg-white" className="flex flex-col justify-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Data</p>
+        <h2 class="mt-2 text-xl font-bold tracking-tight">Powered by Apple Weather.</h2>
+        <p class="mt-3 text-sm text-slate-600">
+          Hourly forecasts and 7-day outlooks from Apple's WeatherKit service, tuned to your exact coordinates.
+        </p>
+      </BentoCard>
+
+      <!-- CTA -->
+      <BentoCard
+        bg="bg-[#FAFAFA]"
+        className="sm:col-span-3 flex flex-col items-center text-center py-12"
+      >
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+          Read your day like a timeline.
+        </h2>
+        <p class="mt-3 max-w-md text-slate-700">
+          Free to download. Pro is one tap away when you want it.
+        </p>
+        <div class="mt-8">
+          <AppStoreButton />
+        </div>
+      </BentoCard>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <p>© 2026 Kacy James</p>
+      <nav class="flex gap-6">
+        <a
+          href="https://github.com/TheNorthEestern/weatherlane-privacy-policy/blob/main/support-en-US.md"
+          class="hover:text-slate-900 transition"
+          >Support</a
+        >
+        <a
+          href="https://github.com/TheNorthEestern/weatherlane-privacy-policy/blob/main/privacy-policy.md"
+          class="hover:text-slate-900 transition"
+          >Privacy</a
+        >
+      </nav>
+    </footer>
+  </main>
+</Layout>
