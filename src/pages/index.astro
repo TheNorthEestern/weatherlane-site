@@ -1,215 +1,287 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BentoCard from '../components/BentoCard.astro';
 import AppStoreButton from '../components/AppStoreButton.astro';
 ---
 
 <Layout>
-  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-    <!-- Bento grid -->
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-      <!-- HERO: spans 2 cols on sm+, full width on mobile -->
-      <BentoCard
-        bg="bg-[#E0F2FE]"
-        className="sm:col-span-2 sm:row-span-2 flex flex-col justify-between min-h-[28rem]"
+  <!-- Top nav -->
+  <header class="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/icon.png" alt="" width="28" height="28" class="w-7 h-7 rounded-lg shadow-sm" />
+      <span class="font-semibold tracking-tight">Weatherlane</span>
+    </a>
+    <nav class="flex items-center gap-6 text-sm">
+      <a href="#features" class="hidden sm:inline text-slate-600 hover:text-slate-900 transition">Features</a>
+      <a href="#pro" class="hidden sm:inline text-slate-600 hover:text-slate-900 transition">Pro</a>
+      <a
+        href="https://apps.apple.com/app/id6468727819"
+        class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 transition"
       >
-        <div class="flex items-center gap-3">
-          <img
-            src="/icon.png"
-            alt="Weatherlane app icon"
-            class="w-12 h-12 rounded-xl shadow-sm"
-            width="48"
-            height="48"
-          />
-          <span class="text-xl font-semibold tracking-tight">Weatherlane</span>
-        </div>
+        App Store
+      </a>
+    </nav>
+  </header>
 
-        <div class="mt-8">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-            Your day,<br />on a single lane.
-          </h1>
-          <p class="mt-5 max-w-md text-base sm:text-lg text-slate-700">
-            An hourly forecast that reads like a timeline. Every hour from now until midnight stacks into one vertical lane, so you can see the shape of your day at a glance.
-          </p>
-          <div class="mt-8">
-            <AppStoreButton />
+  <main>
+    <!-- HERO -->
+    <section class="mx-auto max-w-3xl px-6 pt-16 sm:pt-24 pb-12 text-center">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02]">
+        Read your day<br />like a timeline.
+      </h1>
+      <p class="mt-6 max-w-xl mx-auto text-lg text-slate-600">
+        Weatherlane stacks every hour from now until midnight into one vertical lane. See the shape of your day at a glance.
+      </p>
+      <div class="mt-10 flex justify-center">
+        <AppStoreButton />
+      </div>
+    </section>
+
+    <!-- PHONE PARADE -->
+    <section class="mx-auto max-w-6xl px-4 sm:px-6 pb-20">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div class="rounded-3xl bg-[#FEF9C3] p-6 flex items-end justify-center aspect-[3/4] overflow-hidden">
+          <img src="/screenshots/today.png" alt="Today's hourly forecast" class="w-full h-full object-contain object-bottom" width="1421" height="2909" />
+        </div>
+        <div class="rounded-3xl bg-[#FED7AA] p-6 flex items-end justify-center aspect-[3/4] overflow-hidden">
+          <img src="/screenshots/tomorrow.png" alt="Tomorrow's forecast" class="w-full h-full object-contain object-bottom" width="1421" height="2909" />
+        </div>
+        <div class="rounded-3xl bg-[#D1FAE5] p-6 flex items-end justify-center aspect-[3/4] overflow-hidden">
+          <img src="/screenshots/week.png" alt="7-day forecast" class="w-full h-full object-contain object-bottom" width="1421" height="2909" />
+        </div>
+        <div class="rounded-3xl bg-[#FCE7F3] p-6 flex items-end justify-center aspect-[3/4] overflow-hidden">
+          <img src="/screenshots/detail.png" alt="Detail panel" class="w-full h-full object-contain object-bottom" width="1421" height="2909" />
+        </div>
+        <div class="rounded-3xl bg-[#E0F2FE] p-6 flex items-end justify-center aspect-[3/4] overflow-hidden col-span-2 sm:col-span-3 lg:col-span-1">
+          <img src="/screenshots/locations.png" alt="Locations carousel" class="w-full h-full object-contain object-bottom" width="1421" height="2909" />
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE QUICK FEATURE ICONS -->
+    <section id="features" class="mx-auto max-w-5xl px-6 pb-24">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div>
+          <div class="mx-auto w-10 h-10 mb-4 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="3" x2="12" y2="21" />
+              <circle cx="12" cy="6" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="12" cy="18" r="2" />
+            </svg>
           </div>
+          <h3 class="font-semibold tracking-tight">Hour by hour</h3>
+          <p class="mt-2 text-sm text-slate-600">A vertical lane of every hour from now until midnight.</p>
         </div>
-
-        <!-- Floating phone screenshot -->
-        <img
-          src="/screenshots/today.png"
-          alt="Weatherlane showing Sydney's hourly forecast"
-          class="hidden sm:block absolute right-4 -bottom-12 lg:-bottom-16 w-56 lg:w-72 drop-shadow-2xl"
-          width="1421"
-          height="2909"
-        />
-      </BentoCard>
-
-      <!-- HOUR BY HOUR -->
-      <BentoCard bg="bg-[#FEF9C3]" className="flex flex-col justify-between">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-wide text-amber-700">Hour by hour</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight">
-            Temperature, condition, feel.
-          </h2>
-          <p class="mt-3 text-slate-700">
-            Each row pairs the hour with a glance-readable icon and the feels-like temp. The shape of the day reads itself.
-          </p>
+          <div class="mx-auto w-10 h-10 mb-4 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="3" y1="15" x2="21" y2="15" />
+              <line x1="9" y1="3" x2="9" y2="21" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">Tap for detail</h3>
+          <p class="mt-2 text-sm text-slate-600">Feels-like, wind, UV, precipitation. Eight tiles, one tap.</p>
         </div>
-      </BentoCard>
-
-      <!-- TAP DETAIL -->
-      <BentoCard bg="bg-[#FED7AA]" className="flex flex-col justify-between">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-wide text-orange-700">Tap any hour</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight">
-            For the full picture.
-          </h2>
-          <p class="mt-3 text-slate-700">
-            Feels-like, wind, humidity, UV, precipitation, sunrise and sunset. Eight tiles, one tap.
-          </p>
+          <div class="mx-auto w-10 h-10 mb-4 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">Pin every city</h3>
+          <p class="mt-2 text-sm text-slate-600">Home, the commute, the trip you're planning. One swipe between them.</p>
         </div>
-        <img
-          src="/screenshots/detail.png"
-          alt="Detail panel showing weather metrics for Sydney"
-          class="mt-6 -mb-4 mx-auto w-36 drop-shadow-xl"
-          width="1421"
-          height="2909"
-        />
-      </BentoCard>
+      </div>
+    </section>
 
-      <!-- TOMORROW -->
-      <BentoCard bg="bg-[#EDE9FE]" className="flex flex-col justify-between overflow-hidden">
-        <div>
-          <p class="text-sm font-semibold uppercase tracking-wide text-indigo-700">Swipe up</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight">
-            Tomorrow at a glance.
-          </h2>
-          <p class="mt-3 text-slate-700">
-            One gesture lifts you from now to tomorrow. Same lane, same scrub, twelve hours ahead.
-          </p>
-        </div>
-        <img
-          src="/screenshots/tomorrow.png"
-          alt="Tomorrow's forecast for Sydney"
-          class="mt-6 -mb-12 mx-auto w-32 drop-shadow-xl"
-          width="1421"
-          height="2909"
-        />
-      </BentoCard>
+    <!-- SECTION: Designed to read at a glance -->
+    <section class="mx-auto max-w-3xl px-6 pb-12 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Designed to read at a glance.</h2>
+      <p class="mt-4 text-slate-600">
+        Each row pairs the hour with a glance-readable icon and the feels-like temperature. The shape of the day reads itself, no chart-staring required.
+      </p>
+    </section>
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 pb-32">
+      <div class="rounded-[2.5rem] bg-[#FEF9C3] p-8 sm:p-12 flex justify-center overflow-hidden">
+        <img src="/screenshots/today.png" alt="" class="w-72 sm:w-80 drop-shadow-2xl" width="1421" height="2909" />
+      </div>
+    </section>
 
-      <!-- WEEK -->
-      <BentoCard
-        bg="bg-[#FCE7F3]"
-        className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:gap-8"
-      >
-        <div class="flex-1">
-          <p class="text-sm font-semibold uppercase tracking-wide text-pink-700">7 days</p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight">
-            See the week ahead.
-          </h2>
-          <p class="mt-3 text-slate-700">
-            One more swipe gets you a week of weather: daily highs, lows, and the visual rhythm of what's coming.
-          </p>
-        </div>
-        <img
-          src="/screenshots/week.png"
-          alt="7-day forecast view for Sydney"
-          class="mt-6 sm:mt-0 mx-auto sm:mx-0 w-44 sm:w-48 drop-shadow-xl"
-          width="1421"
-          height="2909"
-        />
-      </BentoCard>
+    <!-- SECTION: Tap any hour -->
+    <section class="mx-auto max-w-3xl px-6 pb-12 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Tap any hour.</h2>
+      <p class="mt-4 text-slate-600">
+        Open the detail panel for feels-like, wind, humidity, UV index, precipitation chance, sunrise and sunset. The lane stays alongside; one tap returns you.
+      </p>
+    </section>
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 pb-32">
+      <div class="rounded-[2.5rem] bg-[#FED7AA] p-8 sm:p-12 flex justify-center overflow-hidden">
+        <img src="/screenshots/detail.png" alt="" class="w-72 sm:w-80 drop-shadow-2xl" width="1421" height="2909" />
+      </div>
+    </section>
 
-      <!-- PRO -->
-      <BentoCard
-        bg="bg-slate-900"
-        className="text-white flex flex-col justify-between min-h-[18rem]"
-      >
-        <div>
-          <p class="text-sm font-semibold uppercase tracking-wide text-sky-300">
-            Weatherlane Pro
-          </p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight">
-            Unlimited cities. Live widget.
-          </h2>
-          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+    <!-- SECTION: All your cities -->
+    <section class="mx-auto max-w-3xl px-6 pb-12 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">All your cities,<br />in one swipe.</h2>
+      <p class="mt-4 text-slate-600">
+        Pin the places you check most: home, the commute, your parents, the trip you're planning. Side-by-side, one gesture between them.
+      </p>
+    </section>
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 pb-32">
+      <div class="rounded-[2.5rem] bg-[#D1FAE5] p-8 sm:p-12 flex justify-center overflow-hidden">
+        <img src="/screenshots/locations.png" alt="" class="w-72 sm:w-80 drop-shadow-2xl" width="1421" height="2909" />
+      </div>
+    </section>
+
+    <!-- PRO SECTION -->
+    <section id="pro" class="mx-auto max-w-5xl px-4 sm:px-6 pb-32">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Weatherlane Pro.</h2>
+        <p class="mt-4 max-w-xl mx-auto text-slate-600">
+          Unlock unlimited saved cities, a self-refreshing home-screen widget, and on-device AI weather summaries.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="rounded-3xl bg-slate-900 text-white p-10 sm:p-12 flex flex-col justify-between min-h-[20rem]">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-sky-300">Pro Annual</p>
+            <p class="mt-3 text-4xl font-bold tracking-tight">$11.99<span class="text-base text-slate-400 font-normal">/year</span></p>
+            <p class="mt-2 text-sm text-slate-400">Starts with a 7-day free trial.</p>
+          </div>
+          <ul class="mt-8 space-y-2 text-sm text-slate-300">
             <li>• Unlimited saved cities</li>
-            <li>• Self-refreshing home-screen widget</li>
-            <li>• On-device AI weather summaries</li>
-            <li>• 7-day free trial</li>
+            <li>• Live home-screen widget</li>
+            <li>• On-device AI summaries</li>
+            <li>• Cancel anytime in Settings</li>
           </ul>
         </div>
-        <p class="mt-6 text-xs text-slate-400">
-          $1.99/month or $11.99/year. Cancel anytime in Settings.
-        </p>
-      </BentoCard>
-
-      <!-- LOCATIONS -->
-      <BentoCard
-        bg="bg-[#D1FAE5]"
-        className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:gap-8"
-      >
-        <div class="flex-1">
-          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700">All your cities</p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight">
-            In one swipe.
-          </h2>
-          <p class="mt-3 text-slate-700">
-            Pin the places you check most: home, the commute, your parents, the trip you're planning. Side-by-side, one gesture between them.
+        <div class="rounded-3xl bg-[#FCE7F3] p-10 sm:p-12 flex flex-col justify-between min-h-[20rem]">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-pink-700">Pro Monthly</p>
+            <p class="mt-3 text-4xl font-bold tracking-tight text-slate-900">$1.99<span class="text-base text-slate-600 font-normal">/month</span></p>
+            <p class="mt-2 text-sm text-slate-700">All Pro features. Month-to-month.</p>
+          </div>
+          <p class="mt-8 text-sm text-slate-700">
+            Apple handles billing. Cancel from Settings → Subscriptions any time.
           </p>
         </div>
-        <img
-          src="/screenshots/locations.png"
-          alt="Locations carousel showing Brisbane, Melbourne, and Sydney"
-          class="mt-6 sm:mt-0 mx-auto sm:mx-0 w-44 sm:w-48 drop-shadow-xl"
-          width="1421"
-          height="2909"
-        />
-      </BentoCard>
+      </div>
+    </section>
 
-      <!-- DATA SOURCE -->
-      <BentoCard bg="bg-white" className="flex flex-col justify-center">
-        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Data</p>
-        <h2 class="mt-2 text-xl font-bold tracking-tight">Powered by Apple Weather.</h2>
-        <p class="mt-3 text-sm text-slate-600">
-          Hourly forecasts and 7-day outlooks from Apple's WeatherKit service, tuned to your exact coordinates.
-        </p>
-      </BentoCard>
-
-      <!-- CTA -->
-      <BentoCard
-        bg="bg-[#FAFAFA]"
-        className="sm:col-span-3 flex flex-col items-center text-center py-12"
-      >
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
-          Read your day like a timeline.
-        </h2>
-        <p class="mt-3 max-w-md text-slate-700">
-          Free to download. Pro is one tap away when you want it.
-        </p>
-        <div class="mt-8">
-          <AppStoreButton />
+    <!-- OTHER FEATURES GRID -->
+    <section class="mx-auto max-w-5xl px-6 pb-32">
+      <h2 class="text-center text-2xl sm:text-3xl font-bold tracking-tight mb-12">
+        A few more things worth knowing.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+        <div>
+          <div class="w-9 h-9 mb-3 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="3" width="14" height="18" rx="2" />
+              <line x1="9" y1="7" x2="15" y2="7" />
+              <line x1="9" y1="11" x2="15" y2="11" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">Home-screen widget</h3>
+          <p class="mt-2 text-sm text-slate-600">A live widget that self-refreshes in the background. Pro feature.</p>
         </div>
-      </BentoCard>
-    </div>
+        <div>
+          <div class="w-9 h-9 mb-3 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">10 languages</h3>
+          <p class="mt-2 text-sm text-slate-600">English (US/GB/AU/CA), Spanish, German, French, Japanese, Korean, Simplified Chinese.</p>
+        </div>
+        <div>
+          <div class="w-9 h-9 mb-3 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" />
+              <path d="M18 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">On-device AI</h3>
+          <p class="mt-2 text-sm text-slate-600">Short prose weather summaries on iOS 26 with Apple Intelligence-eligible hardware.</p>
+        </div>
+        <div>
+          <div class="w-9 h-9 mb-3 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <polyline points="12 7 12 12 15 14" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">7-day forecast</h3>
+          <p class="mt-2 text-sm text-slate-600">One more swipe brings you a week of weather. Same lane, weekly rhythm.</p>
+        </div>
+        <div>
+          <div class="w-9 h-9 mb-3 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 7.07 17.07L12 12z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">Light + dark</h3>
+          <p class="mt-2 text-sm text-slate-600">Follows iOS appearance or pin to one. Either way, glance-readable.</p>
+        </div>
+        <div>
+          <div class="w-9 h-9 mb-3 text-slate-900">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-tight">Powered by Apple Weather</h3>
+          <p class="mt-2 text-sm text-slate-600">Hourly forecasts and 7-day outlooks from Apple's WeatherKit service.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-      <p>© 2026 Kacy James</p>
-      <nav class="flex gap-6">
-        <a
-          href="https://github.com/TheNorthEestern/weatherlane-privacy-policy/blob/main/support-en-US.md"
-          class="hover:text-slate-900 transition"
-          >Support</a
-        >
-        <a
-          href="https://github.com/TheNorthEestern/weatherlane-privacy-policy/blob/main/privacy-policy.md"
-          class="hover:text-slate-900 transition"
-          >Privacy</a
-        >
-      </nav>
-    </footer>
+    <!-- BOTTOM CTA -->
+    <section class="mx-auto max-w-3xl px-6 pb-24 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Get your timeline.</h2>
+      <p class="mt-4 text-slate-600">Free to download. Pro is one tap away when you want it.</p>
+      <div class="mt-10 flex justify-center">
+        <AppStoreButton />
+      </div>
+    </section>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 mt-20">
+    <div class="mx-auto max-w-6xl px-6 py-12 grid grid-cols-2 sm:grid-cols-4 gap-8 text-sm">
+      <div>
+        <p class="font-semibold tracking-tight">Weatherlane</p>
+        <p class="mt-3 text-slate-500">Read your day like a timeline.</p>
+      </div>
+      <div>
+        <p class="font-semibold tracking-tight text-slate-900">Product</p>
+        <ul class="mt-3 space-y-2 text-slate-600">
+          <li><a href="https://apps.apple.com/app/id6468727819" class="hover:text-slate-900 transition">App Store</a></li>
+          <li><a href="#features" class="hover:text-slate-900 transition">Features</a></li>
+          <li><a href="#pro" class="hover:text-slate-900 transition">Pro</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold tracking-tight text-slate-900">Resources</p>
+        <ul class="mt-3 space-y-2 text-slate-600">
+          <li><a href="https://github.com/TheNorthEestern/weatherlane-privacy-policy/blob/main/support-en-US.md" class="hover:text-slate-900 transition">Support</a></li>
+          <li><a href="mailto:support@studentdriver.co" class="hover:text-slate-900 transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold tracking-tight text-slate-900">Legal</p>
+        <ul class="mt-3 space-y-2 text-slate-600">
+          <li><a href="https://github.com/TheNorthEestern/weatherlane-privacy-policy/blob/main/privacy-policy.md" class="hover:text-slate-900 transition">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-200">
+      <div class="mx-auto max-w-6xl px-6 py-6 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+        <p>© 2026 Kacy James</p>
+        <p>Weather data by Apple WeatherKit. Imagery by Unsplash.</p>
+      </div>
+    </div>
+  </footer>
 </Layout>
